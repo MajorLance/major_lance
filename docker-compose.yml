@@ -1,0 +1,54 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: major-lance-app
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      DATABASE_URL: mysql://major_lance:major_lance_dev@mysql:3306/major_lance
+      BYPASS_PAYMENT_GATEWAY: "true"
+    ports:
+      - "3000:3000"
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  migrate:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: build
+    container_name: major-lance-migrate
+    profiles:
+      - migrate
+    environment:
+      DATABASE_URL: mysql://major_lance:major_lance_dev@mysql:3306/major_lance
+    command: npm run db:push
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  mysql:
+    image: mysql:8.4
+    container_name: major-lance-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: major_lance_root
+      MYSQL_DATABASE: major_lance
+      MYSQL_USER: major_lance
+      MYSQL_PASSWORD: major_lance_dev
+    ports:
+      - "3306:3306"
+    volumes:
+      - major_lance_mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -umajor_lance -pmajor_lance_dev --silent"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+
+volumes:
+  major_lance_mysql_data:

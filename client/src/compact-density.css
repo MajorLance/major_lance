@@ -1,0 +1,704 @@
+/* Compact density pass: keeps the same design language with a calmer mobile scale. */
+.app-content { padding: 10px 10px 23px; }
+.app-header { min-height: 64px; padding-top: 8px; padding-bottom: 8px; }
+.brand-crown { width: 33px; height: 33px; }
+.brand-title { font-size: 20px; line-height: 19px; }
+.brand-tagline { font-size: 6px; line-height: 7px; letter-spacing: .65px; }
+.balance-cluster { height: 41px; border-radius: 11px; }
+.balance-value { min-width: 94px; padding-left: 9px; padding-right: 8px; }
+.balance-value svg { width: 19px; height: 19px; }
+.balance-copy small { font-size: 7px; }
+.balance-copy b { font-size: 12px; }
+.withdraw-button { min-width: 70px; font-size: 13px; }
+.bottom-navigation { height: 72px; }
+.bottom-nav-item { gap: 3px; font-size: 9px; }
+.bottom-nav-item svg { width: 23px; height: 23px; }
+.surface-card { border-radius: 11px; }
+.section-card { padding: 10px; }
+.section-heading { min-height: 23px; margin-bottom: 6px; }
+.section-heading h2 { gap: 7px; font-size: 17px; }
+.section-heading h2 svg { width: 18px; height: 18px; }
+.section-link { gap: 5px; font-size: 10px; }
+.section-link svg { width: 14px; }
+.avatar { width: 27px; height: 27px; font-size: 8px; }
+.round-hero { padding: 13px 10px 11px; border-radius: 13px; }
+.round-topline { min-height: 30px; }
+.live-badge { padding: 7px 10px; font-size: 15px; font-weight: 800; }
+.online-badge { padding: 8px 8px; font-size: 10px; }
+.round-kicker { margin-top: 11px; font-size: 16px; }
+.prize-value { font-size: clamp(41px, 12vw, 54px); }
+.round-stats { gap: 6px; margin-top: 12px; }
+.round-stat-card { height: 105px; padding: 11px 6px; border-radius: 9px; }
+.stat-label { gap: 5px; font-size: 12px; }
+.stat-label svg { width: 15px; height: 15px; }
+.round-stat-card > strong { margin-top: 7px; font-size: 29px; }
+.round-stat-card > strong.is-danger { font-size: 21px; margin-top: 12px; }
+.timer-card > strong { font-size: 33px; }
+.leader-line { gap: 6px; margin-top: 8px; font-size: 11px; }
+.leader-line .avatar { width: 19px; height: 19px; }
+.timer-progress { height: 6px; margin: 12px 7px 0; }
+.bid-form { margin-top: 12px; }
+.bid-input-wrap { height: 47px; gap: 8px; padding: 4px 8px 4px 4px; border-radius: 9px; }
+.currency-prefix { width: 56px; height: 37px; font-size: 16px; }
+.bid-input-wrap input { font-size: 12px; }
+.bid-submit { height: 51px; margin-top: 8px; font-size: 19px; }
+.bid-submit svg { width: 20px; height: 20px; }
+.payment-note { margin-top: 10px; font-size: 10px; }
+.bid-list-section { padding-bottom: 7px; }
+.bid-row { min-height: 34px; gap: 7px; }
+.bidder-name { font-size: 12px; }
+.bid-row > strong { font-size: 16px; }
+.bid-time { font-size: 9px; }
+.upcoming-carousel-section { padding-top: 0; }
+.upcoming-carousel-track { gap: 7px; padding-bottom: 3px; }
+.upcoming-mini-card { min-width: 138px; padding: 9px 10px; border-radius: 10px; }
+.mini-card-top { font-size: 8px; }
+.upcoming-mini-card strong { margin-top: 7px; font-size: 22px; }
+.winner-section { padding-bottom: 8px; }
+.winner-row { grid-template-columns: 29px minmax(55px,1fr) auto auto; gap: 6px; }
+.winner-identity strong { font-size: 12px; }
+.winner-identity span { font-size: 8.5px; }
+.winner-amount strong { font-size: 15px; }
+.winner-amount span { font-size: 8px; }
+.paid-badge { padding: 4px 6px; font-size: 8px; }
+.how-section { padding-bottom: 11px; }
+.how-step h3 { min-height: 24px; margin-top: 6px; font-size: 11px; }
+.how-step p { font-size: 8.5px; }
+.step-number { width: 22px; height: 22px; font-size: 15px; }
+.step-icon { height: 22px; }
+.step-icon svg { width: 20px; height: 20px; }
+.faq-home-link { min-height: 41px; padding: 0 12px; font-size: 15px; }
+.question-dot { width: 19px; height: 19px; font-size: 12px; }
+.trust-row { padding-top: 2px; }
+.trust-item > div { height: 27px; }
+.trust-item svg { width: 25px; height: 25px; }
+.trust-item strong { font-size: 11px; }
+.trust-item span { font-size: 8px; }
+.app-footer { padding-top: 6px; font-size: 8px; }
+.footer-brand { margin-bottom: 4px; font-size: 12px; }
+
+.internal-content { gap: 11px; padding-top: 12px; }
+.back-link { gap: 5px; font-size: 11px; }
+.internal-page-heading > span { margin-bottom: 2px; font-size: 9px; }
+.internal-page-heading h1 { font-size: 31px; }
+.page-intro { font-size: 11px; }
+.wallet-hero { padding: 17px 15px 14px; border-radius: 13px; }
+.wallet-hero > strong { font-size: 47px; }
+.wallet-hero > span,.wallet-hero > p { font-size: 11px; }
+.wallet-actions { margin-top: 14px; }
+.gold-action,.dark-action,.wide-gold-button { min-height: 40px; font-size: 15px; }
+.mock-caption { font-size: 8.5px !important; }
+.movement-row { min-height: 53px; }
+.movement-row div:nth-child(2) strong { font-size: 11px; }
+.movement-row div:nth-child(2) span { font-size: 9px; }
+.movement-row > b { font-size: 16px; }
+.empty-state { min-height: 180px; }
+.form-card { padding: 14px; }
+.form-label { font-size: 11px; }
+.form-input { min-height: 46px; }
+.form-input input { font-size: 12px; }
+.form-helper { margin: 8px 0 13px; font-size: 9px; }
+.withdrawal-available { padding: 13px 14px; }
+.withdrawal-available strong { font-size: 31px; }
+.withdrawal-history-row { min-height: 49px; }
+.segment-control button { min-height: 32px; font-size: 10px; }
+.history-bid-row { min-height: 53px; }
+.history-bid-row div:nth-child(2) strong { font-size: 12px; }
+.history-bid-row div:nth-child(2) span { font-size: 8.5px; }
+.history-bid-row > b { font-size: 18px; }
+.upcoming-card { padding: 14px; }
+.upcoming-card > strong { font-size: 34px; }
+.notification-button,.notification-confirmed { min-height: 36px; font-size: 14px; }
+.winner-history-row { min-height: 68px; }
+.winner-history-info strong { font-size: 12px; }
+.winner-history-info span,.winner-history-info small { font-size: 8.5px; }
+.winner-history-row > div:last-child > b { font-size: 17px; }
+.faq-item button { min-height: 41px; padding: 0 12px; font-size: 15px; }
+.faq-item > p { padding: 0 12px 11px 41px; font-size: 10px; }
+.support-card { padding: 11px; }
+.account-profile { padding: 13px; }
+.account-avatar { width: 42px; height: 42px; }
+.account-menu-link { min-height: 59px; }
+.account-menu-link div strong { font-size: 11px; }
+.account-menu-link div small { font-size: 8.5px; }
+.legal-note { font-size: 8.5px; }
+@media (max-width: 390px) {
+  .app-header { padding-left: 10px; padding-right: 10px; }
+  .brand-crown { width: 31px; height: 31px; }
+  .brand-title { font-size: 19px; }
+  .balance-value { min-width: 88px; }
+  .withdraw-button { min-width: 66px; }
+  .prize-value { font-size: 46px; }
+  .round-stat-card > strong { font-size: 27px; }
+  .timer-card > strong { font-size: 31px; }
+  .how-step h3 { font-size: 10px; }
+  .how-step p { font-size: 8px; }
+  .trust-item strong { font-size: 10px; }
+}
+
+/* Reference-scale responsive pass: restore breathing room instead of shrinking the desktop layout. */
+.app-content { padding: 18px 16px 34px; }
+.app-header { min-height: 76px; padding: 13px 16px; }
+.brand-crown { width: 38px; height: 38px; }
+.brand-title { font-size: 24px; line-height: 22px; letter-spacing: .15px; }
+.brand-tagline { font-size: 7px; line-height: 9px; letter-spacing: .85px; }
+.balance-cluster { height: 46px; border-radius: 13px; }
+.balance-value { min-width: 108px; padding: 0 12px; }
+.balance-value svg { width: 21px; height: 21px; }
+.balance-copy small { font-size: 8px; letter-spacing: .35px; }
+.balance-copy b { font-size: 13px; letter-spacing: .15px; }
+.withdraw-button { min-width: 78px; padding: 0 14px; font-size: 14px; letter-spacing: .1px; }
+.bottom-navigation { height: 78px; }
+.bottom-nav-item { gap: 5px; font-size: 10px; letter-spacing: .1px; }
+.bottom-nav-item svg { width: 25px; height: 25px; }
+.home-stack { gap: 20px; }
+.round-hero { padding: 20px 15px 17px; border-radius: 17px; }
+.round-topline { min-height: 38px; }
+.live-badge { gap: 9px; padding: 9px 15px; font-size: 17px; letter-spacing: .15px; }
+.online-badge { gap: 7px; padding: 10px 10px; font-size: 11px; }
+.round-kicker { margin: 18px 0 4px; font-size: 19px; letter-spacing: 1px; }
+.prize-value { font-size: clamp(54px, 15vw, 68px); line-height: .98; letter-spacing: 1.5px; }
+.round-stats { gap: 10px; margin-top: 20px; }
+.round-stat-card { height: 140px; padding: 18px 11px; border-radius: 12px; }
+.stat-label { gap: 7px; font-size: 13px; line-height: 1.15; letter-spacing: .55px; }
+.stat-label svg { width: 17px; height: 17px; }
+.round-stat-card > strong { margin-top: 12px; font-size: 36px; line-height: .95; letter-spacing: .35px; }
+.round-stat-card > strong.is-danger { margin-top: 19px; font-size: 25px; }
+.timer-card > strong { font-size: 41px; }
+.leader-line { gap: 8px; margin-top: 13px; font-size: 13px; letter-spacing: .1px; }
+.leader-line .avatar { width: 23px; height: 23px; }
+.timer-progress { height: 8px; margin: 18px 9px 0; }
+.bid-form { margin-top: 20px; }
+.bid-input-wrap { height: 58px; gap: 12px; padding: 6px 12px 6px 6px; border-radius: 12px; }
+.currency-prefix { width: 67px; height: 46px; border-radius: 8px; font-size: 19px; }
+.bid-input-wrap input { font-size: 14px; letter-spacing: .1px; }
+.bid-submit { height: 62px; margin-top: 12px; border-radius: 12px; font-size: 21px; letter-spacing: .2px; }
+.bid-submit svg { width: 22px; height: 22px; }
+.payment-note { margin-top: 15px; font-size: 11px; letter-spacing: .05px; }
+.surface-card { border-radius: 14px; }
+.section-card { padding: 16px; }
+.section-heading { min-height: 29px; margin-bottom: 11px; }
+.section-heading h2 { gap: 9px; font-size: 19px; letter-spacing: .25px; }
+.section-heading h2 svg { width: 20px; height: 20px; }
+.section-link { gap: 6px; font-size: 11px; letter-spacing: .15px; }
+.section-link svg { width: 15px; }
+.bid-list-section { padding-bottom: 15px; }
+.bid-row { min-height: 48px; gap: 10px; }
+.avatar { width: 31px; height: 31px; font-size: 9px; }
+.bidder-name { font-size: 14px; letter-spacing: .1px; }
+.bid-row > strong { font-size: 19px; letter-spacing: .2px; }
+.bid-time { font-size: 11px; }
+.upcoming-carousel-section { padding-top: 0; }
+.upcoming-carousel-track { gap: 10px; padding-bottom: 4px; }
+.upcoming-mini-card { min-width: 156px; padding: 12px 13px; border-radius: 12px; }
+.mini-card-top { font-size: 9px; letter-spacing: .25px; }
+.upcoming-mini-card strong { margin-top: 9px; font-size: 24px; letter-spacing: .2px; }
+.next-round-card { padding: 15px 14px 16px; border-radius: 15px; }
+.next-round-card .section-heading { margin-bottom: 9px; }
+.next-round-card .section-heading h2 { font-size: 20px; }
+.next-round-body { gap: 6px; }
+.next-round-body > div { padding: 0 12px; }
+.next-round-body span { font-size: 12px; letter-spacing: .1px; }
+.next-round-body strong { margin-top: 5px; font-size: 30px; letter-spacing: .2px; }
+.notify-button { height: 45px; margin-left: 10px; border-radius: 9px; font-size: 15px; letter-spacing: .15px; }
+.how-section { padding-bottom: 17px; }
+.how-grid { grid-template-columns: 1fr; gap: 13px; }
+.how-step { display: grid; grid-template-columns: 30px 32px minmax(0, 1fr); column-gap: 10px; align-items: center; text-align: left; }
+.step-number { width: 28px; height: 28px; margin-bottom: 0; font-size: 17px; }
+.step-icon { height: 30px; justify-content: flex-start; }
+.step-icon svg { width: 25px; height: 25px; }
+.how-step h3 { min-height: 0; margin: 0 0 3px; font-size: 14px; line-height: 1.1; letter-spacing: .1px; }
+.how-step p { font-size: 11px; line-height: 1.35; }
+.faq-section { gap: 9px; }
+.faq-item button { min-height: 52px; padding: 0 16px; font-size: 17px; letter-spacing: .1px; }
+.faq-item > p { padding: 0 16px 16px 49px; font-size: 12px; line-height: 1.5; }
+.trust-row { gap: 7px; padding: 7px 4px 2px; }
+.trust-item > div { height: 35px; }
+.trust-item svg { width: 30px; height: 30px; }
+.trust-item strong { font-size: 13px; }
+.trust-item span { margin-top: 4px; font-size: 9px; line-height: 1.25; }
+.app-footer { padding: 12px 0 9px; font-size: 10px; }
+.footer-brand { margin-bottom: 7px; font-size: 15px; }
+
+.internal-content { gap: 16px; padding-top: 17px; }
+.back-link { gap: 7px; font-size: 12px; letter-spacing: .1px; }
+.internal-page-heading > span { margin-bottom: 4px; font-size: 10px; letter-spacing: .55px; }
+.internal-page-heading h1 { font-size: 35px; line-height: 1.05; letter-spacing: .1px; }
+.page-intro { font-size: 12px; line-height: 1.45; }
+.wallet-hero { padding: 22px 18px 18px; border-radius: 15px; }
+.wallet-hero > strong { font-size: 52px; letter-spacing: .35px; }
+.wallet-hero > span,.wallet-hero > p { font-size: 12px; }
+.wallet-actions { margin-top: 18px; gap: 10px; }
+.gold-action,.dark-action,.wide-gold-button { min-height: 46px; font-size: 16px; letter-spacing: .1px; }
+.movement-row { min-height: 62px; }
+.movement-row div:nth-child(2) strong { font-size: 12px; }
+.movement-row div:nth-child(2) span { font-size: 10px; }
+.movement-row > b { font-size: 18px; letter-spacing: .15px; }
+.form-card { padding: 18px; }
+.form-label { font-size: 12px; }
+.form-input { min-height: 52px; }
+.form-input input { font-size: 14px; }
+.form-helper { margin: 10px 0 16px; font-size: 10px; }
+.withdrawal-available { padding: 17px 16px; }
+.withdrawal-available strong { font-size: 35px; }
+.withdrawal-history-row { min-height: 58px; }
+.segment-control button { min-height: 38px; font-size: 11px; }
+.history-bid-row { min-height: 62px; }
+.history-bid-row div:nth-child(2) strong { font-size: 13px; }
+.history-bid-row div:nth-child(2) span { font-size: 9.5px; }
+.history-bid-row > b { font-size: 20px; }
+.upcoming-card { padding: 18px; }
+.upcoming-card > strong { font-size: 39px; letter-spacing: .25px; }
+.notification-button,.notification-confirmed { min-height: 42px; font-size: 15px; }
+.winner-history-row { min-height: 76px; }
+.winner-history-info strong { font-size: 13px; }
+.winner-history-info span,.winner-history-info small { font-size: 9.5px; }
+.winner-history-row > div:last-child > b { font-size: 19px; }
+.support-card { padding: 15px; }
+.account-profile { padding: 17px; }
+.account-avatar { width: 48px; height: 48px; }
+.account-menu-link { min-height: 68px; }
+.account-menu-link div strong { font-size: 12px; }
+.account-menu-link div small { font-size: 9.5px; }
+.legal-note { font-size: 9.5px; line-height: 1.45; }
+
+@media (max-width: 390px) {
+  .app-content { padding-left: 13px; padding-right: 13px; }
+  .app-header { padding-left: 13px; padding-right: 13px; }
+  .brand-crown { width: 36px; height: 36px; }
+  .brand-title { font-size: 22px; }
+  .balance-value { min-width: 101px; padding-left: 10px; padding-right: 9px; }
+  .withdraw-button { min-width: 74px; padding-left: 11px; padding-right: 11px; }
+  .round-hero { padding-left: 13px; padding-right: 13px; }
+  .live-badge { font-size: 16px; padding-left: 13px; padding-right: 13px; }
+  .online-badge { padding-left: 8px; padding-right: 8px; font-size: 10px; }
+  .round-kicker { font-size: 18px; }
+  .prize-value { font-size: 55px; }
+  .round-stat-card { height: 132px; padding-left: 8px; padding-right: 8px; }
+  .stat-label { font-size: 12px; }
+  .round-stat-card > strong { font-size: 33px; }
+  .timer-card > strong { font-size: 38px; }
+  .bid-submit { font-size: 19px; }
+  .section-card { padding-left: 13px; padding-right: 13px; }
+  .section-heading h2 { font-size: 18px; }
+  .bid-row > strong { font-size: 18px; }
+  .next-round-body > div { padding-left: 7px; padding-right: 7px; }
+  .next-round-body strong { font-size: 27px; }
+}
+
+@media (min-width: 640px) {
+  .app-content { padding-left: 24px; padding-right: 24px; }
+  .round-hero { padding: 28px 24px 23px; }
+  .prize-value { font-size: 72px; }
+  .round-stat-card { height: 150px; padding: 20px 16px; }
+  .round-stat-card > strong { font-size: 42px; }
+  .timer-card > strong { font-size: 46px; }
+  .bid-submit { max-width: 520px; margin-left: auto; margin-right: auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bid-submit, .timer-progress span { transition: none; }
+}
+
+/* Narrow-screen guardrails: preserve hierarchy without clipping or overlap. */
+@media (max-width: 390px) {
+  .round-topline { min-height: 72px; flex-direction: column; align-items: center; gap: 8px; }
+  .live-badge { position: relative; font-size: 15px; }
+  .online-badge { position: static; padding: 8px 10px; }
+  .round-kicker { margin-top: 14px; }
+  .prize-value { font-size: 48px; letter-spacing: .2px; white-space: nowrap; }
+}
+@media (min-width: 391px) and (max-width: 430px) {
+  .prize-value { font-size: 52px; letter-spacing: .3px; white-space: nowrap; }
+}
+
+/* Exact reference composition pass: compact visual scale with deliberate whitespace. */
+.app-content { padding: 10px 12px 26px; }
+.app-header { min-height: 72px; padding: 10px 12px; }
+.brand-crown { width: 35px; height: 35px; }
+.brand-title { font-size: 21px; line-height: 20px; letter-spacing: 0; }
+.brand-tagline { font-size: 6px; line-height: 8px; letter-spacing: .65px; }
+.header-actions { gap: 10px; }
+.balance-cluster { height: 42px; border-radius: 12px; }
+.balance-value { min-width: 96px; gap: 7px; padding: 0 9px; }
+.balance-value svg { width: 19px; height: 19px; }
+.balance-copy small { font-size: 7px; }
+.balance-copy b { font-size: 12px; }
+.withdraw-button { min-width: 71px; padding: 0 9px; font-size: 13px; }
+.header-menu { display: grid; place-items: center; width: 34px; height: 42px; padding: 0; border: 0; color: #f6cf48; background: transparent; }
+.bottom-navigation { height: 70px; }
+.bottom-nav-item { gap: 4px; font-size: 9px; }
+.bottom-nav-item svg { width: 22px; height: 22px; }
+.home-stack { gap: 12px; }
+.round-hero { padding: 16px 12px 13px; border-radius: 14px; }
+.round-topline { min-height: 34px; flex-direction: row; align-items: flex-start; gap: 0; }
+.live-badge { gap: 7px; padding: 7px 11px; font-size: 15px; letter-spacing: 0; }
+.live-pulse { width: 10px; height: 10px; }
+.online-badge { position: absolute; right: 0; top: 0; gap: 5px; padding: 8px 7px; font-size: 10px; }
+.round-kicker { margin: 12px 0 2px; font-size: 16px; letter-spacing: .35px; }
+.prize-value { font-size: clamp(43px, 12.8vw, 57px); line-height: 1; letter-spacing: .25px; }
+.round-stats { gap: 7px; margin-top: 13px; }
+.round-stat-card { height: 106px; padding: 12px 7px; border-radius: 10px; }
+.stat-label { gap: 5px; font-size: 11px; line-height: 1.08; letter-spacing: .2px; }
+.stat-label svg { width: 15px; height: 15px; }
+.round-stat-card > strong { margin-top: 8px; font-size: 29px; letter-spacing: 0; }
+.round-stat-card > strong.is-danger { margin-top: 13px; font-size: 21px; }
+.timer-card > strong { font-size: 32px; }
+.leader-line { gap: 6px; margin-top: 8px; font-size: 11px; }
+.leader-line .avatar { width: 19px; height: 19px; }
+.timer-progress { height: 6px; margin: 12px 8px 0; }
+.bid-form { margin-top: 14px; }
+.bid-input-wrap { height: 48px; gap: 9px; padding: 4px 9px 4px 4px; border-radius: 10px; }
+.currency-prefix { width: 57px; height: 38px; border-radius: 7px; font-size: 16px; }
+.bid-input-wrap input { font-size: 13px; }
+.bid-submit { height: 54px; margin-top: 9px; border-radius: 10px; font-size: 18px; letter-spacing: 0; }
+.bid-submit svg { width: 20px; height: 20px; }
+.payment-note { margin-top: 11px; font-size: 10px; }
+.surface-card { border-radius: 12px; }
+.section-card { padding: 12px; }
+.section-heading { min-height: 24px; margin-bottom: 7px; }
+.section-heading h2 { gap: 7px; font-size: 16px; letter-spacing: 0; }
+.section-heading h2 svg { width: 18px; height: 18px; }
+.section-link { gap: 5px; font-size: 10px; }
+.section-link svg { width: 14px; }
+.bid-list-section { padding-bottom: 9px; }
+.bid-row { min-height: 38px; gap: 8px; }
+.avatar { width: 27px; height: 27px; font-size: 8px; }
+.bidder-name { font-size: 13px; }
+.bid-row > strong { font-size: 17px; }
+.bid-time { font-size: 10px; }
+.upcoming-carousel-track { gap: 7px; padding-bottom: 2px; }
+.upcoming-mini-card { min-width: 140px; padding: 9px 10px; border-radius: 10px; }
+.mini-card-top { font-size: 8px; }
+.upcoming-mini-card strong { margin-top: 7px; font-size: 22px; }
+.next-round-card { padding: 11px 12px 12px; border-radius: 13px; }
+.next-round-card .section-heading { margin-bottom: 4px; }
+.next-round-card .section-heading h2 { font-size: 17px; }
+.next-round-body { gap: 0; }
+.next-round-body > div { padding: 0 7px; }
+.next-round-body span { font-size: 10px; }
+.next-round-body strong { margin-top: 2px; font-size: 26px; }
+.notify-button { height: 39px; margin-left: 6px; border-radius: 8px; font-size: 13px; }
+.how-section { padding-bottom: 11px; }
+.how-grid { grid-template-columns: repeat(4, 1fr); gap: 3px; }
+.how-step { display: flex; align-items: center; flex-direction: column; text-align: center; }
+.step-number { width: 24px; height: 24px; margin-bottom: 4px; font-size: 15px; }
+.step-icon { height: 24px; justify-content: center; }
+.step-icon svg { width: 21px; height: 21px; }
+.how-step h3 { min-height: 25px; margin: 6px 0 3px; font-size: 11px; line-height: 1; letter-spacing: 0; }
+.how-step p { font-size: 8.5px; line-height: 1.25; }
+.faq-section { gap: 6px; }
+.faq-item button { min-height: 43px; padding: 0 12px; font-size: 15px; }
+.faq-item > p { padding: 0 12px 12px 42px; font-size: 10px; }
+.trust-row { gap: 3px; padding: 3px 2px 1px; }
+.trust-item > div { height: 29px; }
+.trust-item svg { width: 26px; height: 26px; }
+.trust-item strong { font-size: 11px; }
+.trust-item span { margin-top: 2px; font-size: 8px; }
+.app-footer { padding: 7px 0 5px; font-size: 8px; }
+.footer-brand { margin-bottom: 4px; font-size: 13px; }
+
+@media (max-width: 390px) {
+  .app-content { padding-left: 10px; padding-right: 10px; }
+  .app-header { padding-left: 10px; padding-right: 10px; }
+  .header-actions { gap: 5px; }
+  .brand-crown { width: 32px; height: 32px; }
+  .brand-title { font-size: 19px; }
+  .balance-value { min-width: 87px; padding-left: 7px; padding-right: 7px; }
+  .withdraw-button { min-width: 64px; padding-left: 7px; padding-right: 7px; }
+  .header-menu { width: 29px; }
+  .round-hero { padding-left: 10px; padding-right: 10px; }
+  .live-badge { padding-left: 9px; padding-right: 9px; font-size: 14px; }
+  .online-badge { padding-left: 6px; padding-right: 6px; font-size: 9px; }
+  .round-kicker { font-size: 15px; }
+  .prize-value { font-size: 44px; }
+  .round-stat-card { height: 101px; padding-left: 5px; padding-right: 5px; }
+  .stat-label { font-size: 10px; }
+  .round-stat-card > strong { font-size: 27px; }
+  .timer-card > strong { font-size: 30px; }
+  .bid-submit { font-size: 17px; }
+  .section-card { padding-left: 10px; padding-right: 10px; }
+  .section-heading h2 { font-size: 15px; }
+  .bid-row > strong { font-size: 16px; }
+  .next-round-body > div { padding-left: 4px; padding-right: 4px; }
+  .next-round-body strong { font-size: 23px; }
+  .notify-button { font-size: 12px; }
+  .how-step h3 { font-size: 10px; }
+  .how-step p { font-size: 7.5px; }
+}
+
+/* Reference-specific override for the four-step horizontal module. */
+.how-vertical-list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 3px; }
+.how-vertical-list::before { display: none; }
+.how-vertical-list .how-step { min-height: 0; display: flex; grid-template-columns: none; grid-template-rows: none; align-items: center; flex-direction: column; column-gap: 0; padding: 4px 2px 2px; text-align: center; }
+.how-vertical-list .step-number { width: 24px; height: 24px; margin: 0 0 4px; }
+.how-vertical-list .step-icon { height: 24px; justify-content: center; }
+.how-vertical-list .step-icon svg { width: 21px; height: 21px; }
+.how-vertical-list .how-step h3 { min-height: 25px; margin: 6px 0 3px; font-size: 10px; line-height: 1.05; }
+.how-vertical-list .how-step p { margin: 0; font-size: 8px; line-height: 1.25; }
+@media (max-width: 390px) {
+  .how-vertical-list .how-step { padding-left: 0; padding-right: 0; }
+  .how-vertical-list .how-step h3 { font-size: 9px; }
+  .how-vertical-list .how-step p { font-size: 7px; }
+}
+
+/* Prevent the three-column next-round summary from colliding at phone widths. */
+@media (max-width: 430px) {
+  .next-round-card { padding-left: 10px; padding-right: 10px; }
+  .next-round-body { grid-template-columns: minmax(0, 1.08fr) minmax(0, .82fr) minmax(106px, 1fr); column-gap: 4px; }
+  .next-round-body > div { padding-left: 3px; padding-right: 3px; }
+  .next-round-body span { font-size: 9px; white-space: nowrap; }
+  .next-round-body strong { font-size: 20px; line-height: 1; white-space: nowrap; }
+  .notify-button { min-width: 0; margin-left: 0; padding: 0 6px; font-size: 11px; white-space: nowrap; }
+  .notify-button svg { width: 14px; height: 14px; }
+}
+
+/* Readability and framing pass based on the latest 448px capture. */
+.header-logo-link { min-width: 0; flex: 1 1 auto; }
+.brand-lockup, .brand-copy { min-width: 0; }
+.brand-title { white-space: nowrap; }
+.header-actions { flex: 0 0 auto; }
+.app-content { padding-bottom: calc(92px + env(safe-area-inset-bottom)); }
+.round-topline { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; justify-content: initial; }
+.round-topline .live-badge { grid-column: 2; justify-self: center; }
+.round-topline .online-badge { position: static; grid-column: 3; justify-self: end; }
+.round-hero { padding-top: 14px; padding-bottom: 12px; }
+.round-kicker { margin-top: 10px; font-size: 15px; }
+.prize-value { font-size: clamp(41px, 11.8vw, 54px); }
+.round-stats { margin-top: 11px; gap: 6px; }
+.round-stat-card { height: 96px; padding-top: 10px; padding-bottom: 9px; }
+.round-stat-card > strong { margin-top: 7px; font-size: 27px; }
+.timer-card > strong { font-size: 30px; }
+.leader-line { margin-top: 6px; }
+.timer-progress { height: 5px; margin-top: 9px; }
+.bid-form { margin-top: 12px; }
+.bid-input-wrap { height: 45px; }
+.currency-prefix { height: 35px; }
+.bid-submit { height: 50px; margin-top: 8px; font-size: 17px; }
+.payment-note { margin-top: 9px; font-size: 9px; }
+@media (max-width: 430px) {
+  .app-header { gap: 5px; }
+  .brand-crown { width: 29px; height: 29px; }
+  .brand-title { font-size: 17px; }
+  .brand-tagline { font-size: 5px; letter-spacing: .45px; }
+  .balance-cluster { height: 38px; }
+  .balance-value { min-width: 78px; padding-left: 6px; padding-right: 6px; }
+  .balance-value svg { width: 17px; height: 17px; }
+  .balance-copy small { font-size: 6px; }
+  .balance-copy b { font-size: 11px; }
+  .withdraw-button { min-width: 59px; padding-left: 6px; padding-right: 6px; font-size: 12px; }
+  .header-menu { width: 25px; height: 38px; }
+  .header-menu svg { width: 24px; height: 24px; }
+  .round-topline { grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); }
+  .live-badge { padding-left: 8px; padding-right: 8px; font-size: 13px; }
+  .online-badge { padding-left: 5px; padding-right: 5px; font-size: 8px; }
+  .prize-value { font-size: 42px; }
+  .round-stat-card { height: 92px; }
+  .round-stat-card > strong { font-size: 25px; }
+  .timer-card > strong { font-size: 28px; }
+  .stat-label { font-size: 9px; }
+  .bid-submit { font-size: 16px; }
+}
+
+@media (max-width: 430px) {
+  .next-round-body { grid-template-columns: minmax(0, 1fr) minmax(74px, .72fr) minmax(112px, 1fr); column-gap: 8px; }
+  .next-round-body > div { padding-left: 6px; padding-right: 6px; text-align: center; }
+  .next-round-body strong { font-size: 18px; }
+  .notify-button { padding-left: 5px; padding-right: 5px; font-size: 10px; }
+}
+
+@media (max-width: 430px) {
+  .next-round-body { grid-template-columns: minmax(0, 1.06fr) minmax(70px, .72fr) minmax(112px, 1fr); column-gap: 12px; }
+  .next-round-body > div { min-width: 0; overflow: hidden; }
+  .next-round-body > div:first-child strong { font-size: 16px; }
+  .next-round-body > div:nth-child(2) strong { font-size: 19px; }
+}
+
+@media (max-width: 430px) {
+  .next-round-body { grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 8px; }
+  .next-round-body > div { padding-left: 0; padding-right: 0; overflow: hidden; }
+  .next-round-body > div:first-child strong { font-size: 14px; }
+  .next-round-body > div:nth-child(2) strong { font-size: 18px; }
+  .next-round-body .notify-button { width: 100%; padding-left: 2px; padding-right: 2px; font-size: 10px; }
+}
+
+@media (max-width: 430px) {
+  .next-round-body { display: flex; align-items: center; gap: 12px; }
+  .next-round-body > div { flex: 1 1 0; min-width: 0; padding: 0; }
+  .next-round-body > div:first-child strong { font-size: 12px; }
+  .next-round-body > div:nth-child(2) strong { font-size: 17px; }
+  .next-round-body .notify-button { flex: 0 0 112px; width: 112px; }
+}
+
+.next-round-divider { display: block; width: 1px; height: 34px; align-self: center; background: rgba(159,137,79,.34); }
+@media (max-width: 430px) {
+  .next-round-body { display: grid; grid-template-columns: minmax(0, 1.2fr) 1px minmax(0, .7fr) minmax(112px, 1fr); gap: 8px; }
+  .next-round-body > div { width: auto; }
+  .next-round-body > div:first-child strong { font-size: 16px; }
+  .next-round-body > div:nth-of-type(2) strong { font-size: 19px; }
+  .next-round-divider { grid-column: 2; grid-row: 1; }
+  .next-round-body > div:nth-of-type(2) { grid-column: 3; grid-row: 1; }
+  .next-round-body .notify-button { grid-column: 4; grid-row: 1; width: 100%; }
+}
+
+@media (max-width: 430px) {
+  .next-round-body .notify-button { white-space: nowrap; overflow: hidden; min-width: 0; height: 37px; font-size: 9px; gap: 4px; }
+}
+
+@media (max-width: 430px) {
+  .next-round-body { display: flex; flex-wrap: nowrap; align-items: center; gap: 6px; }
+  .next-round-body > div:first-child { flex: 1.18 1 0; min-width: 0; }
+  .next-round-body > div:nth-of-type(2) { flex: .72 1 0; min-width: 0; }
+  .next-round-divider { flex: 0 0 1px; }
+  .next-round-body .notify-button { flex: 0 0 106px; width: 106px; margin: 0; padding: 0 2px; }
+  .next-round-body > div:first-child strong { font-size: 14px; }
+  .next-round-body > div:nth-of-type(2) strong { font-size: 17px; }
+}
+
+/* Mobile reading mode: one instructional block per row. */
+@media (max-width: 700px) {
+  .how-vertical-list { display: flex !important; flex-direction: column !important; gap: 8px; }
+  .how-vertical-list::before { top: 16px; bottom: 16px; left: 15px; }
+  .how-vertical-list .how-step { min-height: 70px; display: grid; grid-template-columns: 31px 34px minmax(0, 1fr); grid-template-rows: auto auto; column-gap: 10px; align-items: center; padding: 10px 8px; border: 1px solid rgba(255,255,255,.08); border-radius: 10px; background: rgba(255,255,255,.025); text-align: left; }
+  .how-vertical-list .step-number { grid-column: 1; grid-row: 1 / span 2; width: 28px; height: 28px; margin: 0; font-size: 16px; }
+  .how-vertical-list .step-icon { grid-column: 2; grid-row: 1 / span 2; height: auto; justify-content: flex-start; }
+  .how-vertical-list .step-icon svg { width: 25px; height: 25px; }
+  .how-vertical-list .how-step h3 { grid-column: 3; grid-row: 1; margin: 0 0 3px; font-size: 14px; line-height: 1.15; }
+  .how-vertical-list .how-step p { grid-column: 3; grid-row: 2; margin: 0; font-size: 11px; line-height: 1.35; }
+}
+
+/* Wide layout: the same steps become a spacious four-column row only when there is room. */
+@media (min-width: 701px) {
+  .how-vertical-list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+  .how-vertical-list::before { display: none; }
+  .how-vertical-list .how-step { min-height: 126px; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 6px; padding: 8px 6px; border: 0; background: transparent; text-align: center; }
+  .how-vertical-list .step-number { width: 28px; height: 28px; margin: 0; }
+  .how-vertical-list .step-icon { height: 30px; justify-content: center; }
+  .how-vertical-list .step-icon svg { width: 25px; height: 25px; }
+  .how-vertical-list .how-step h3 { min-height: 0; margin: 0; font-size: 14px; line-height: 1.15; }
+  .how-vertical-list .how-step p { margin: 0; max-width: 150px; font-size: 11px; line-height: 1.35; }
+}
+
+/* Live audience rotates locally every 15 seconds without a server-side timer. */
+.online-count { position: relative; display: inline-block; width: 2.35em; height: 1em; vertical-align: baseline; }
+.online-number { position: absolute; inset: 0; opacity: 0; animation: online-number-cycle 75s linear infinite; }
+.online-number-1 { animation-delay: 0s; }
+.online-number-2 { animation-delay: 15s; }
+.online-number-3 { animation-delay: 30s; }
+.online-number-4 { animation-delay: 45s; }
+.online-number-5 { animation-delay: 60s; }
+@keyframes online-number-cycle {
+  0%, 17% { opacity: 1; }
+  20%, 100% { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .online-number { animation: none; }
+  .online-number:not(.online-number-1) { display: none; }
+}
+@media (max-width: 700px) {
+  .trust-row { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 10px; padding: 10px 8px 4px; }
+  .trust-item { min-height: 62px; justify-content: flex-start; }
+  .trust-item > div { height: 30px; }
+  .trust-item svg { width: 27px; height: 27px; }
+  .trust-item strong { font-size: 11px; }
+  .trust-item span { margin-top: 3px; font-size: 8.5px; }
+}
+
+/* Keep one audience value visible at every point of the 15-second cycle. */
+@keyframes online-number-cycle {
+  0%, 20% { opacity: 1; }
+  20.01%, 100% { opacity: 0; }
+}
+
+.online-number-1 { opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .online-number-1 { opacity: 1; }
+}
+
+/* Final framing pass for header, live hero and bid hierarchy. */
+.balance-cluster { height: 38px; border-radius: 10px; }
+.balance-value { min-width: 72px; padding-left: 9px; padding-right: 8px; }
+.balance-copy small { font-size: 7px; }
+.balance-copy b { font-size: 11px; }
+.withdraw-button { min-width: 62px; padding-left: 10px; padding-right: 10px; font-size: 12px; }
+.bid-row > strong { color: #eeeae0; }
+.bid-row > strong.is-latest { color: #f9ce3d; }
+.round-topline { position: static; display: block; min-height: 0; }
+.round-hero { position: relative; padding-top: 25px; }
+.round-topline .live-badge { display: flex; width: fit-content; margin: 0 auto; }
+.round-topline .online-badge { position: absolute; z-index: 4; top: 11px; right: 11px; margin: 0; }
+.online-count { margin-right: 3px; }
+.round-kicker { margin-top: 16px; }
+@media (max-width: 520px) {
+  .app-header { gap: 10px; }
+  .header-logo-link { flex: 0 1 auto; }
+  .brand-title { font-size: 18px; }
+  .balance-cluster { height: 36px; }
+  .balance-value { min-width: 68px; padding-left: 8px; padding-right: 7px; }
+  .withdraw-button { min-width: 58px; padding-left: 8px; padding-right: 8px; }
+  .round-hero { padding-top: 27px; }
+  .round-topline .online-badge { top: 10px; right: 10px; font-size: 9px; }
+  .round-topline .live-badge { font-size: 14px; }
+  .round-kicker { margin-top: 18px; }
+}
+
+/* Header micro-scale refinement for narrow mobile screens. */
+.online-badge { gap: 4px; }
+.online-copy { display: inline-flex; align-items: baseline; gap: 2px; white-space: nowrap; }
+.online-count { margin-right: 0; width: 2.25em; }
+@media (max-width: 520px) {
+  .brand-crown { width: 29px; height: 29px; }
+  .brand-title { font-size: 17px; line-height: 17px; }
+  .brand-tagline { font-size: 5.5px; line-height: 6px; letter-spacing: .55px; }
+  .online-badge { gap: 3px; padding-left: 7px; padding-right: 7px; }
+  .online-copy { gap: 1px; }
+}
+@media (max-width: 390px) {
+  .brand-crown { width: 27px; height: 27px; }
+  .brand-title { font-size: 16px; line-height: 16px; }
+  .brand-tagline { font-size: 5px; line-height: 5.5px; }
+}
+
+/* Final header line lock: audience value and label stay side by side. */
+.online-badge { flex-wrap: nowrap; white-space: nowrap; }
+.online-copy { display: inline-flex; flex: 0 0 auto; flex-direction: row; flex-wrap: nowrap; align-items: baseline; gap: 2px; white-space: nowrap; }
+.online-count { display: inline-block; flex: 0 0 2.25em; width: 2.25em; height: 1em; margin: 0; line-height: 1; white-space: nowrap; }
+.online-copy > span:last-child { display: inline-block; white-space: nowrap; }
+@media (max-width: 520px) {
+  .brand-crown { width: 26px; height: 26px; }
+  .brand-title { font-size: 15.5px; line-height: 15.5px; }
+  .brand-tagline { font-size: 5px; line-height: 5.5px; letter-spacing: .5px; }
+  .online-copy { gap: 1px; }
+}
+@media (max-width: 390px) {
+  .brand-crown { width: 25px; height: 25px; }
+  .brand-title { font-size: 15px; line-height: 15px; }
+}
+
+/* Highlight the current top bidder in the recent bids list. */
+.bid-row.is-top-bid {
+  margin: 2px -6px;
+  padding: 4px 6px;
+  border: 1px solid rgba(249, 206, 61, .82);
+  border-radius: 9px;
+  background: linear-gradient(100deg, rgba(249, 206, 61, .12), rgba(249, 206, 61, .035));
+  box-shadow: 0 0 0 1px rgba(249, 206, 61, .08), inset 0 1px 0 rgba(255,255,255,.04);
+}
+.bid-row.is-top-bid .bidder-name {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+  gap: 5px;
+}
+.top-bid-medal {
+  flex: 0 0 auto;
+  width: 16px;
+  height: 16px;
+  color: #f9ce3d;
+  stroke-width: 2.2;
+  filter: drop-shadow(0 0 4px rgba(249, 206, 61, .45));
+}
+@media (max-width: 520px) {
+  .bid-row.is-top-bid { margin-left: -4px; margin-right: -4px; padding-left: 4px; padding-right: 4px; }
+  .top-bid-medal { width: 15px; height: 15px; }
+}
