@@ -1,0 +1,1 @@
+ALTER TABLE `bids` DROP INDEX `bids_pixChargeId_unique`;

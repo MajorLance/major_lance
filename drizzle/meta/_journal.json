@@ -1,0 +1,55 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1788362980678,
+      "tag": "0000_mighty_yellow_claw",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1788363396748,
+      "tag": "0001_omniscient_marvex",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1788363431983,
+      "tag": "0002_aromatic_the_enforcers",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1788371507143,
+      "tag": "0003_magenta_bloodaxe",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1788453577390,
+      "tag": "0004_odd_bug",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "5",
+      "when": 1788534756858,
+      "tag": "0005_striped_felicia_hardy",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "5",
+      "when": 1788542213548,
+      "tag": "0006_round_goblin_queen",
+      "breakpoints": true
+    }
+  ]
+}
