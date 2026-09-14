@@ -1,6 +1,6 @@
 import { Link, useLocation } from "wouter";
 import { ArrowUpRight, Bell, Home, Trophy, UserRound } from "lucide-react";
-import { useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { trpc } from "@/lib/trpc";
 import "./header-refinements.css";
 
@@ -33,8 +33,13 @@ export function MajorLanceFooter() {
   return <img className="footer-brand-image" src="/major-lance-logo.webp" alt="Major Lance" />;
 }
 
-export function MajorLanceHeader() {
-  const [customerId] = useState<number | null>(readCustomerId);
+export function MajorLanceHeader({ onCreateAccount }: { onCreateAccount?: () => void }) {
+  const [customerId, setCustomerId] = useState<number | null>(readCustomerId);
+  useEffect(() => {
+    const handleProfileUpdate = () => setCustomerId(readCustomerId());
+    window.addEventListener("major-lance-profile-updated", handleProfileUpdate);
+    return () => window.removeEventListener("major-lance-profile-updated", handleProfileUpdate);
+  }, []);
   const wallet = trpc.wallet.balance.useQuery(
     { customerId: customerId ?? 0 },
     { enabled: customerId !== null, refetchInterval: 10000 },
@@ -44,10 +49,17 @@ export function MajorLanceHeader() {
     <header className="app-header">
       <Link href="/" className="header-logo-link"><MajorLanceLogo /></Link>
       <div className="header-actions">
-        <div className="balance-cluster" aria-label={`Saldo disponível: ${balance}`}>
-          <Link href="/saldo" className="balance-value"><span className="balance-copy"><small>Saldo</small><b>{balance}</b></span></Link>
-          <Link href="/saque" className="withdraw-button"><span>Sacar</span><ArrowUpRight size={15} /></Link>
-        </div>
+        {customerId !== null ? (
+          <div className="balance-cluster" aria-label={`Saldo disponível: ${balance}`}>
+            <Link href="/saldo" className="balance-value"><span className="balance-copy"><small>Saldo</small><b>{balance}</b></span></Link>
+            <Link href="/saque" className="withdraw-button"><span>Sacar</span><ArrowUpRight size={15} /></Link>
+          </div>
+        ) : (
+          <button className="create-account-button" type="button" onClick={onCreateAccount}>
+            <UserRound size={16} />
+            <span>Criar conta</span>
+          </button>
+        )}
       </div>
     </header>
   );
@@ -70,10 +82,10 @@ export function BottomNavigation() {
   );
 }
 
-export function MajorLanceShell({ children }: { children: ReactNode }) {
+export function MajorLanceShell({ children, onCreateAccount }: { children: ReactNode; onCreateAccount?: () => void }) {
   return (
     <div className="app-canvas">
-      <MajorLanceHeader />
+      <MajorLanceHeader onCreateAccount={onCreateAccount} />
       <main className="app-content">{children}</main>
       <BottomNavigation />
     </div>

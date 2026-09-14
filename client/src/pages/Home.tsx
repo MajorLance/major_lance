@@ -418,6 +418,7 @@ export default function Home() {
           CUSTOMER_STORAGE_KEY,
           JSON.stringify(storedProfile),
         );
+        window.dispatchEvent(new Event("major-lance-profile-updated"));
         setCustomerProfile(storedProfile);
         setRegistrationOpen(false);
         if (pendingBidAmount !== null) {
@@ -481,7 +482,7 @@ export default function Home() {
 
   if (!roundView) {
     return (
-      <MajorLanceShell>
+      <MajorLanceShell onCreateAccount={() => { setRegistrationError(null); setPendingBidAmount(null); setRegistrationOpen(true); }}>
         <div className="round-loading-state">
           {auctionState.isError
             ? "Não foi possível carregar a rodada agora."
@@ -492,7 +493,7 @@ export default function Home() {
   }
 
   return (
-    <MajorLanceShell>
+    <MajorLanceShell onCreateAccount={() => { setRegistrationError(null); setPendingBidAmount(null); setRegistrationOpen(true); }}>
       <div className="home-stack">
         {newBidNotice && (
           <div className="bid-live-toast" role="status" aria-live="polite">

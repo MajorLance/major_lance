@@ -7,7 +7,6 @@ import {
   createCustomerProfile,
   failPixChargeRequest,
   createManualBid,
-  creditWalletDepositBypass,
   ensureCurrentRound,
   getPixChargeForUser,
   getCustomerProfileById,
@@ -338,11 +337,6 @@ export const appRouter = router({
                   status: "paid",
                   amount: Number(charge.amount),
                   payload: { bypass: true, statusQuery: true },
-                });
-                await creditWalletDepositBypass({
-                  customerId: input.customerId,
-                  amount: Number(charge.amount),
-                  requestKey: charge.requestKey,
                 });
                 if (updated)
                   return {

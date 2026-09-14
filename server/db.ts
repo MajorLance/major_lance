@@ -284,42 +284,6 @@ export function shouldConfirmPaymentBypass(input: {
   );
 }
 
-export async function creditWalletDepositBypass(input: {
-  customerId: number;
-  amount: number;
-  requestKey: string;
-}) {
-  const db = await getDb();
-  if (!db) throw new Error("Banco de dados não configurado");
-  const idempotencyKey = `bypass-deposit:${input.requestKey}`;
-  await db.transaction(async (tx) => {
-    await tx
-      .insert(walletAccounts)
-      .values({ customerId: input.customerId, balance: "0.00" })
-      .onDuplicateKeyUpdate({ set: { customerId: sql`customerId` } });
-    const result = await tx
-      .insert(walletTransactions)
-      .values({
-        customerId: input.customerId,
-        kind: "prize",
-        amount: input.amount.toFixed(2),
-        idempotencyKey,
-        description: `Depósito bypass R$ ${input.amount.toFixed(2)}`,
-      })
-      .onDuplicateKeyUpdate({ set: { idempotencyKey: sql`idempotencyKey` } });
-    const affectedRows = Number(
-      (result as unknown as [{ affectedRows?: number }, unknown])[0]
-        ?.affectedRows ?? 0,
-    );
-    if (affectedRows > 0) {
-      await tx
-        .update(walletAccounts)
-        .set({ balance: sql`balance + ${input.amount.toFixed(2)}` })
-        .where(eq(walletAccounts.customerId, input.customerId));
-    }
-  });
-}
-
 async function settleFinishedRound(roundIdValue: string, prize: number) {
   const db = await getDb();
   if (!db) throw new Error("Banco de dados não configurado");
@@ -684,6 +648,13 @@ async function insertDevelopmentRoundBid(
   const queue = buildDevelopmentRoundSeed(roundId, sequenceIndex);
   const entry = queue[position];
   if (!entry) return false;
+  const round = (
+    await db
+      .select({ startsAt: auctionRounds.startsAt })
+      .from(auctionRounds)
+      .where(eq(auctionRounds.id, roundId))
+      .limit(1)
+  )[0];
 
   const allBids = await getRoundBids(roundId);
   const currentBid = allBids[0]?.amount ?? 0;
@@ -698,6 +669,9 @@ async function insertDevelopmentRoundBid(
     name: entry.name,
     amount: amount.toFixed(2),
     createdByUserId: 0,
+    createdAt: round
+      ? new Date(round.startsAt.getTime() + DEVELOPMENT_BID_SCHEDULE_MS[position])
+      : new Date(),
   });
   return true;
 }
@@ -756,6 +730,16 @@ async function seedDevelopmentRoundBids(round: {
     .sort((a, b) => a.createdAt.getTime() - b.createdAt.getTime());
 
   const queue = buildDevelopmentRoundSeed(round.id, round.sequenceIndex);
+  for (const item of synthetic) {
+    const position = queue.findIndex((entry) => entry.name === item.name);
+    const scheduledAt = DEVELOPMENT_BID_SCHEDULE_MS[position];
+    if (position >= 0 && scheduledAt !== undefined) {
+      await db
+        .update(manualBids)
+        .set({ createdAt: new Date(round.startsAt.getTime() + scheduledAt) })
+        .where(eq(manualBids.id, item.id));
+    }
+  }
   let syntheticCount = synthetic.length;
 
   for (; syntheticCount < queue.length; syntheticCount += 1) {

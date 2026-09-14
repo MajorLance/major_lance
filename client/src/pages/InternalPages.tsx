@@ -2,6 +2,9 @@ import {
   BottomNavigation,
   MajorLanceHeader,
 } from "@/components/MajorLanceShell";
+import CustomerRegistrationModal, {
+  type CustomerRegistrationValues,
+} from "@/components/CustomerRegistrationModal";
 import {
   accountProfile,
   faqItems,
@@ -28,6 +31,7 @@ import {
   CreditCard,
   Gift,
   Landmark,
+  LogOut,
   LockKeyhole,
   LogIn,
   Menu,
@@ -656,9 +660,13 @@ export function FaqPage() {
 }
 
 export function AccountPage() {
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
   const [customerProfile, setCustomerProfile] = useState<{
     fullName: string;
+    id?: number;
+    whatsapp?: string;
+    pixKeyType?: CustomerRegistrationValues["pixKeyType"];
+    pixKey?: string;
   } | null>(() => {
     try {
       const stored = window.localStorage.getItem(
@@ -669,6 +677,9 @@ export function AccountPage() {
       return null;
     }
   });
+  const [registrationOpen, setRegistrationOpen] = useState(false);
+  const [registrationError, setRegistrationError] = useState<string | null>(null);
+  const createCustomerProfile = trpc.customer.create.useMutation();
   const iconByName = {
     wallet: WalletCards,
     landmark: Landmark,
@@ -677,18 +688,54 @@ export function AccountPage() {
     help: CircleHelp,
   };
   const connected = Boolean(user || customerProfile);
+  const handleRegistration = (values: CustomerRegistrationValues) => {
+    setRegistrationError(null);
+    createCustomerProfile.mutate(values, {
+      onSuccess: (profile) => {
+        const storedProfile = { ...values, id: profile.id };
+        window.localStorage.setItem(
+          "major-lance-customer-profile",
+          JSON.stringify(storedProfile),
+        );
+        setCustomerProfile(storedProfile);
+        window.dispatchEvent(new Event("major-lance-profile-updated"));
+        setRegistrationOpen(false);
+      },
+      onError: (error) =>
+        setRegistrationError(
+          error.message || "Não foi possível salvar seu cadastro.",
+        ),
+    });
+  };
+  const handleSignOut = () => {
+    window.localStorage.removeItem("major-lance-customer-profile");
+    setCustomerProfile(null);
+    window.dispatchEvent(new Event("major-lance-profile-updated"));
+    if (user) void logout();
+  };
   return (
     <AppPage eyebrow="CONTA" title="Minha conta">
       <section className="account-profile">
         <div className="account-avatar">
           <UserRound size={32} />
         </div>
-        <div>
+        <div className="account-profile-copy">
           <strong>
             {user?.name ?? customerProfile?.fullName ?? accountProfile.name}
           </strong>
           <span>{connected ? "Conta conectada" : accountProfile.status}</span>
         </div>
+        {connected ? (
+          <button className="create-account-button account-action-button" type="button" onClick={handleSignOut}>
+            <LogOut size={16} />
+            <span>Sair</span>
+          </button>
+        ) : (
+          <button className="create-account-button account-action-button" type="button" onClick={() => { setRegistrationError(null); setRegistrationOpen(true); }}>
+            <UserRound size={16} />
+            <span>Criar conta</span>
+          </button>
+        )}
       </section>
       <section className="surface-card account-menu">
         {accountProfile.menu.map(({ href, icon, label, detail }) => {
@@ -711,6 +758,14 @@ export function AccountPage() {
         Ao continuar, você concorda com os termos de uso e a política de
         privacidade da plataforma.
       </p>
+      {registrationOpen && (
+        <CustomerRegistrationModal
+          isSubmitting={createCustomerProfile.isPending}
+          errorMessage={registrationError}
+          onClose={() => setRegistrationOpen(false)}
+          onSubmit={handleRegistration}
+        />
+      )}
     </AppPage>
   );
 }

@@ -20,3 +20,6 @@
 }
 .withdrawal-success-toast { position: fixed; z-index: 20; left: 50%; bottom: 84px; display: flex; align-items: center; gap: 9px; transform: translateX(-50%); width: max-content; max-width: calc(100vw - 32px); padding: 13px 18px; border: 1px solid rgba(110,219,167,.65); border-radius: 12px; color: #bff5d8; background: #123c2a; box-shadow: 0 10px 28px rgba(0,0,0,.42); font-size: 13px; font-weight: 700; }
 .withdrawal-success-toast svg { color: #6ee0a8; }
+
+.account-profile .account-action-button { min-height: 36px; padding: 0 10px; border: 1px solid rgba(255,255,255,.14); border-radius: 9px; color: #17130c; background: linear-gradient(107deg, #ffd653 0%, #ffdb62 47%, #f9c630 100%); box-shadow: 0 3px 8px rgba(215,156,0,.24); }
+.account-profile .account-action-button:hover { filter: brightness(1.06); }
