@@ -22,4 +22,6 @@
 .withdrawal-success-toast svg { color: #6ee0a8; }
 
 .account-profile .account-action-button { min-height: 36px; padding: 0 10px; border: 1px solid rgba(255,255,255,.14); border-radius: 9px; color: #000 !important; background: linear-gradient(107deg, #ffd653 0%, #ffdb62 47%, #f9c630 100%); box-shadow: 0 3px 8px rgba(215,156,0,.24); }
+.account-profile .account-action-button span,
+.account-profile .account-action-button svg { color: #000 !important; opacity: 1 !important; }
 .account-profile .account-action-button:hover { filter: brightness(1.06); }
