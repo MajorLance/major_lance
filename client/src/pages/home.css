@@ -79,7 +79,56 @@
 .registration-security { display: flex; align-items: start; gap: 5px; margin: 10px 0 9px; color: #aaa398; font-size: 8px; line-height: 1.3; }.registration-security svg { flex: 0 0 auto; color: #e8bd3b; }
 .registration-error { margin: 0 0 8px; color: #f09a91; font-size: 9px; text-align: center; }
 .registration-submit { display: flex; justify-content: center; align-items: center; width: 100%; height: 38px; border: 0; border-radius: 8px; color: #17130c; background: linear-gradient(107deg,#ffd653,#f9c630); font-size: 11px; font-weight: 900; }.registration-submit:disabled { opacity: .65; cursor: wait; }
-@media (max-width: 390px) { .registration-backdrop { padding: 10px; }.registration-modal { padding-left: 13px; padding-right: 13px; } }
+/* Cadastro responsivo: prioriza leitura e toque confortável no mobile. */
+.registration-modal { width: min(100%, 440px); max-height: calc(100dvh - 24px); padding: 26px 24px 22px; }
+.registration-badge { width: 42px; height: 42px; margin-bottom: 9px; }
+.registration-modal h2 { font-size: 26px; }
+.registration-intro { max-width: 360px; margin-bottom: 17px; font-size: 12px; line-height: 1.45; }
+.registration-label { margin-top: 13px; font-size: 11px; }
+.registration-input-wrap { gap: 9px; height: 46px; margin-top: 7px; padding: 0 12px; border-radius: 9px; }
+.registration-input-wrap svg { width: 17px; height: 17px; }
+.registration-input-wrap input { font-size: 13px; }
+.registration-select-wrap { margin-top: 7px; }
+.registration-select-trigger { height: 46px; padding: 0 12px; font-size: 13px; border-radius: 9px; }
+.registration-select-option { min-height: 44px; padding: 0 12px; font-size: 13px; }
+.registration-help { margin: 6px 0 8px; font-size: 10.5px; line-height: 1.4; }
+.registration-key-note { margin-top: 7px; font-size: 9.5px; line-height: 1.35; }
+.registration-security { gap: 7px; margin: 14px 0 12px; font-size: 9.5px; line-height: 1.4; }
+.registration-submit { height: 48px; border-radius: 10px; font-size: 13px; }
+
+/* O aviso superior se adapta ao mobile e nunca corta o nome ou o valor. */
+.bid-live-toast { box-sizing: border-box; width: min(100%, 360px); }
+.bid-live-toast > div { min-width: 0; }
+.bid-live-toast span { overflow-wrap: anywhere; white-space: normal; line-height: 1.25; }
+
+@media (max-width: 520px) {
+  .registration-backdrop { padding: 12px; }
+  .registration-modal { width: 100%; max-height: calc(100dvh - 24px); padding: 22px 18px 18px; }
+  .registration-modal h2 { font-size: 24px; }
+  .registration-intro { font-size: 11.5px; }
+  .registration-label { font-size: 10.5px; }
+  .registration-input-wrap { height: 45px; }
+  .registration-select-trigger { height: 45px; font-size: 12px; }
+  .registration-select-option { font-size: 12px; }
+  .registration-help { font-size: 10px; }
+  .registration-key-note, .registration-security { font-size: 9px; }
+  .bid-live-toast { width: calc(100% - 4px); margin-left: auto; margin-right: auto; padding: 10px 12px; gap: 8px; align-items: flex-start; }
+  .bid-live-toast strong { font-size: 11px; }
+  .bid-live-toast span { font-size: 11px; }
+}
+
+@media (max-width: 360px) {
+  .registration-backdrop { padding: 8px; }
+  .registration-modal { max-height: calc(100dvh - 16px); padding: 20px 14px 16px; }
+  .registration-modal h2 { font-size: 22px; }
+  .registration-intro { margin-bottom: 13px; font-size: 11px; }
+  .registration-label { margin-top: 11px; font-size: 10px; }
+  .registration-input-wrap, .registration-select-trigger { height: 43px; }
+  .registration-input-wrap input, .registration-select-trigger { font-size: 11.5px; }
+  .registration-help { font-size: 9.5px; }
+  .registration-key-note, .registration-security { font-size: 8.5px; }
+  .registration-submit { height: 46px; font-size: 12px; }
+}
 
 .bid-live-toast { position: relative; z-index: 4; display: flex; align-items: center; gap: 10px; width: min(100%, 360px); margin: 0 auto 10px; padding: 11px 14px; border: 1px solid rgba(255,208,64,.72); border-radius: 12px; color: #19150b; background: linear-gradient(105deg,#ffe88b,#f7c735); box-shadow: 0 10px 26px rgba(245,190,34,.2); animation: bid-toast-slide .34s var(--ease-out); }.bid-live-toast > svg { flex: 0 0 auto; }.bid-live-toast > div { display: grid; gap: 2px; min-width: 0; }.bid-live-toast strong { font-size: 12px; font-weight: 900; text-transform: uppercase; letter-spacing: .35px; }.bid-live-toast span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 12px; font-weight: 700; }.bid-row.is-new-bid { position: relative; border-radius: 8px; animation: bid-row-enter 1.5s var(--ease-out); }.bid-row.is-new-bid::after { content: ""; position: absolute; inset: 1px 0; pointer-events: none; border: 1px solid rgba(255,210,61,.7); border-radius: inherit; animation: bid-row-glow 1.5s ease-out; }.bid-row.is-new-bid .bidder-name, .bid-row.is-new-bid > strong { color: #ffe071; }
 @keyframes bid-toast-slide { from { opacity: 0; transform: translateY(-18px); } to { opacity: 1; transform: translateY(0); } } @keyframes bid-row-enter { 0% { opacity: 0; transform: translateY(-12px); background: rgba(255,210,61,.16); } 55% { opacity: 1; transform: translateY(0); background: rgba(255,210,61,.1); } 100% { opacity: 1; transform: translateY(0); background: transparent; } } @keyframes bid-row-glow { 0%, 55% { box-shadow: 0 0 0 0 rgba(255,210,61,0); } 70% { box-shadow: 0 0 0 5px rgba(255,210,61,.16); } 100% { box-shadow: 0 0 0 0 rgba(255,210,61,0); } } @media (prefers-reduced-motion: reduce) { .bid-live-toast, .bid-row.is-new-bid, .bid-row.is-new-bid::after { animation: none; } }
