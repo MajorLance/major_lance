@@ -728,6 +728,15 @@ async function seedDevelopmentRoundBids(round: {
   const synthetic = existing
     .filter((item) => item.createdByUserId === 0)
     .sort((a, b) => a.createdAt.getTime() - b.createdAt.getTime());
+  const seenSyntheticBids = new Set<string>();
+  for (const item of synthetic) {
+    const key = `${item.name}:${Number(item.amount).toFixed(2)}`;
+    if (seenSyntheticBids.has(key)) {
+      await db.delete(manualBids).where(eq(manualBids.id, item.id));
+      continue;
+    }
+    seenSyntheticBids.add(key);
+  }
 
   const queue = buildDevelopmentRoundSeed(round.id, round.sequenceIndex);
   for (const item of synthetic) {
