@@ -1063,31 +1063,6 @@ export default function Home() {
           </motion.div>
         )}
       </AnimatePresence>
-      <AnimatePresence>
-        {isCelebrating && paymentSuccess && (
-          <motion.div
-            className="payment-celebration-toast"
-            role="status"
-            aria-live="polite"
-            initial={{ y: -18, opacity: 0, scale: 0.96 }}
-            animate={{ y: 0, opacity: 1, scale: 1 }}
-            exit={{ y: -12, opacity: 0 }}
-            transition={{ type: "spring", stiffness: 380, damping: 24 }}
-          >
-            <span className="celebration-icon">
-              <PartyPopper size={18} />
-            </span>
-            <div>
-              <strong>Pagamento confirmado!</strong>
-              <span>
-                {formatCurrency(paymentSuccess.amount)} — seu lance já está na
-                rodada
-              </span>
-            </div>
-            <Sparkles size={16} className="celebration-sparkle" />
-          </motion.div>
-        )}
-      </AnimatePresence>
     </MajorLanceShell>
   );
 }
