@@ -33,9 +33,20 @@ async function findAvailablePort(startPort: number = 3000): Promise<number> {
 async function startServer() {
   const app = express();
   const server = createServer(app);
+  const legacyHost = "major-lance-production-4b90.up.railway.app";
+  const publicHost = "www.maiorlance.site";
   // Configure body parser with larger size limit for file uploads
   app.use(express.json({ limit: "50mb" }));
   app.use(express.urlencoded({ limit: "50mb", extended: true }));
+  app.use((req, res, next) => {
+    const forwardedHost = req.get("x-forwarded-host")?.split(",")[0]?.trim();
+    const requestHost = (forwardedHost || req.get("host") || "").split(":")[0];
+    if (requestHost === legacyHost) {
+      res.redirect(308, `https://${publicHost}${req.originalUrl}`);
+      return;
+    }
+    next();
+  });
   registerStorageProxy(app);
   registerOAuthRoutes(app);
   registerSyncPayWebhook(app);
